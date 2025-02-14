@@ -15,20 +15,15 @@ import android.widget.RelativeLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.sunnyweather.R
-import com.example.sunnyweather.logic.Repository.refreshWeather
 import com.example.sunnyweather.logic.model.Weather
 import com.example.sunnyweather.logic.model.getSky
-import com.example.sunnyweather.ui.place.WeatherViewModel
 import java.util.Locale
 
 class WeatherActivity : AppCompatActivity() {
@@ -96,7 +91,9 @@ class WeatherActivity : AppCompatActivity() {
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary)
 //        refreshWeather()
         swipeRefresh.setOnRefreshListener {
-            refreshWeather()
+//            refreshWeather()
+            viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
+            swipeRefresh.isRefreshing = true
         }
         viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
 
@@ -113,10 +110,10 @@ class WeatherActivity : AppCompatActivity() {
         weatherLayout = findViewById(R.id.weatherLayout)
     }
 
-    fun refreshWeather() {
-        viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
-        swipeRefresh.isRefreshing = true
-    }
+//    fun refreshWeather() {
+//        viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
+//        swipeRefresh.isRefreshing = true
+//    }
 
     private fun showWeatherInfo(weather: Weather) {
         placeName.text = viewModel.placeName

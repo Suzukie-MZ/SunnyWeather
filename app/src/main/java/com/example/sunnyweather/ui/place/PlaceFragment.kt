@@ -59,7 +59,7 @@ class PlaceFragment : Fragment() {
         recyclerView.layoutManager = layoutManager
         adapter = PlaceAdapter(this, viewModel.placeList)
         recyclerView.adapter = adapter
-        val  searchPlaceEdit = rview.findViewById<EditText>(R.id.searchPlaceEdit)
+        val searchPlaceEdit = rview.findViewById<EditText>(R.id.searchPlaceEdit)
         val bgImageView = rview.findViewById<ImageView>(R.id.bgImageView)
         searchPlaceEdit.addTextChangedListener { editable ->
             val content = editable.toString()
