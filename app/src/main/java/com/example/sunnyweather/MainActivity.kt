@@ -12,8 +12,8 @@ import com.example.sunnyweather.ui.place.PlaceFragment
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        val controller = ViewCompat.getWindowInsetsController(window.decorView)
+//        enableEdgeToEdge()
+//        val controller = ViewCompat.getWindowInsetsController(window.decorView)
 //        controller?.hide(statusBars())
 //        window.statusBarColor = Color.TRANSPARENT
         setContentView(R.layout.activity_main)

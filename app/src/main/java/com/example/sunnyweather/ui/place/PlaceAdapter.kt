@@ -18,6 +18,7 @@ class PlaceAdapter(private val fragment: PlaceFragment, private val placeList: L
         val placeName: TextView = view.findViewById(R.id.placeName)
         val placeAddress: TextView = view.findViewById(R.id.placeAddress)
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.place_item,
             parent, false)
@@ -46,6 +47,7 @@ class PlaceAdapter(private val fragment: PlaceFragment, private val placeList: L
         }
         return holder
     }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val place = placeList[position]
         holder.placeName.text = place.name
